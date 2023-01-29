@@ -1,0 +1,21 @@
+name: CI - ${{ github.workspace }}
+
+on:
+    push:
+        branches: ["*"]
+
+jobs:
+    build:
+        runs-on: ubuntun-latest
+
+        steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+            with:
+                node-version: 19
+
+        name: Instalando lib package.json
+        - run: npm ci
+
+        name: Iniciando teste
+        - run: npm run test
