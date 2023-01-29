@@ -16,8 +16,8 @@ jobs:
           with:
               node-version: 19
 
-        name: Instalando lib package.json
-        - run: npm ci
+        - name: Instalando lib package.json
+          run: npm ci
 
-        name: Iniciando teste
-        - run: npm run test
+        - name: Iniciando teste
+          run: npm run test
