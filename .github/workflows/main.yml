@@ -1,4 +1,4 @@
-name: CI - ${{ github.workspace }}
+name: CI - Security MS API
 
 on:
     push:
