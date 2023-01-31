@@ -1,0 +1,41 @@
+name: CI - Security MS API
+
+on:
+    push:
+        branches:
+            - main
+    #pull_request:
+        #types: [labeled]
+
+jobs:
+    build:
+        #if: contains( github.event.label.name, 'deploy dev' )
+        runs-on: ubuntu-latest
+        environment: LCWB_SH_PRD
+        steps:
+        - uses: actions/checkout@v2
+
+        - name: Setup Env Node
+          uses: actions/setup-node@v1
+          with:
+              node-version: 19
+
+        - name: Instalando lib package.json
+          run: npm ci
+
+        - name: Iniciando teste
+          run: npm run test
+
+        - name: SSH Remote Commands
+          uses: appleboy/ssh-action@v0.1.7
+          with:
+              host: ${{ secrets.HOST }}
+              username: ${{ secrets.USERNAME }}
+              password: ${{ secrets.PASSWORD }}
+              port: ${{ secrets.PORT }}
+              script: |
+                pm2 delete all
+                cd /home/userapp/api/security-ms-api
+                git pull
+                npm install
+                pm2 start npm -- start
