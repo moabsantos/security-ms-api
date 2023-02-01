@@ -1,4 +1,4 @@
-name: Deploy Production LCWB_SH_PRD
+name: Deploy Production LCWB_SH_PRD CentOs 8
 
 on:
     push:
