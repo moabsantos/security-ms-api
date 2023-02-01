@@ -38,4 +38,4 @@ jobs:
                 cd /home/userapp/api/security-ms-api
                 git pull
                 npm install
-                pm2 start npm -- start
+                pm2 start dist/main.js --name security-ms-api
