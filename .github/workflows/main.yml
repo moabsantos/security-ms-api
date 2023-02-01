@@ -23,7 +23,7 @@ jobs:
         - name: Instalando lib package.json
           run: npm ci
 
-        #- name: Iniciando teste
+        #- name: Iniciando test
         #  run: npm run test
 
         - name: SSH Remote Commands
