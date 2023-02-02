@@ -1,8 +1,14 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+/*
+Removendo devido limitação do PM2
 import * as dotenv from 'dotenv';
 dotenv.config();
+*/
+const path = require('path'); 
+require('dotenv').config({ path: path.join(__dirname, '.env') });
+
 
 const configDb = {
   type: process.env.DB_TYPE as any,
