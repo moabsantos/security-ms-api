@@ -9,6 +9,7 @@ dotenv.config();
 const path = require('path'); 
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
+console.log('LOCAL ENV ' + path.join(__dirname, '.env'));
 
 const configDb = {
   type: process.env.DB_TYPE as any,
