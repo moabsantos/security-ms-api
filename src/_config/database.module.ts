@@ -5,6 +5,10 @@ const path = require('path');
 import * as dotenv from 'dotenv';
 dotenv.config({ path: path.join(__dirname, '.env') });
 
+console.log('*** LENDO ARQUIVO ENV ***')
+console.log( path.join(__dirname, '.env'))
+console.log('*** TIPO DE DB ***')
+console.log( process.env.DB_TYPE )
 
 const configDb = {
   type: process.env.DB_TYPE as any,
