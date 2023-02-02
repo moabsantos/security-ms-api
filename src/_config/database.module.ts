@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 const path = require('path'); 
 import * as dotenv from 'dotenv';
-dotenv.config({ path: path.join(__dirname, '.env') });
+dotenv.config({ path: path.join(__dirname + '/../../', '.env') });
 
 console.log('*** LENDO ARQUIVO ENV ***')
 console.log( path.join(__dirname, '.env'))
